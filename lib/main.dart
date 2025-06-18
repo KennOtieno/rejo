@@ -16,20 +16,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Healthy LifeStyle',
       theme: ThemeData(
-        primaryColor: Color(0xFF4CAF50),
-        scaffoldColor: Colors.white,
+        primaryColor: const Color(0xFF4CAF50),
+        scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Poppins',
         appBarTheme: const AppBarTheme(
           elevation: 0,
-          color: Colors.white,
+          backgroundColor: Colors.white,
           iconTheme: IconThemeData(
-            color: Colors.black
-            ),
-            titleTextStyle: TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+            color: Colors.black,
+          ),
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       home: const HomePage(),
