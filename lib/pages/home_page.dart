@@ -50,6 +50,26 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
+              
+              Container(
+                padding: EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFF6C63FF),
+                      Color(0xFF5A54D1),
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(20.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.(0xFF6c63FF).withOpacity(0.3),
+                      blurRadius: 15.0,
+                      offset: Offset(0, 10),
+                    ),
+                  ],
+                ),
+              ),
             ],
           )
         )
