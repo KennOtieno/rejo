@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'details_page.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -27,7 +29,7 @@ class HomePage extends StatelessWidget {
                       ),
                       SizedBox(height: 5),
                       Text(
-                        'Dear Pro',
+                        'Hey Pro',
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -287,8 +289,12 @@ class HomePage extends StatelessWidget {
   ) {
     return InkWell(
       onTap: () {
-        Navigator.pop(context);
-        
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const DetailsPage(),
+          ),
+        );
       },
 
       child: Container(
