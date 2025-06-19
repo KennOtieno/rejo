@@ -203,6 +203,7 @@ class HomePage extends StatelessWidget {
                 '45 min -Medium',
                 Icons.fitness_center,
                 0.68,
+                context,
               ),
               const SizedBox(height: 15),
 
@@ -211,14 +212,16 @@ class HomePage extends StatelessWidget {
                 '45 min -Intermediate',
                 Icons.accessibility_new,
                 0.45,
+                context,
               ),
               const SizedBox(height: 15),
 
               _buildWorkoutCard(
-                'Cardio Blast',
+                'Cardio Moto',
                 '20 min -High Intensity',
                 Icons.directions_run,
                 0.32,
+                context,
               ),
 
             ],
@@ -280,98 +283,106 @@ class HomePage extends StatelessWidget {
     String subtitle,
     IconData icon,
     double progress,
+  BuildContext context,
   ) {
-    return Container(
-      padding: const EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 2,
-            blurRadius: 10,
-          ),
-        ],
-      ),
-      child: const Row(
-        children: [
-           const Container(
-          height: 50,
-          width: 50,
-          decoration: BoxDecoration(
-            color: Color(0xFF6C63FF).withOpacity(0.2),
-            borderRadius: BorderRadius.circular(12),
-          ),
+    return InkWell(
+      onTap: () {
+        Navigator.pop(context);
+        
+      },
 
-          child: Center(
-            child: Icon(
-              icon,
-              color: Color(0xFF6C63FF),
-              size: 25,
+      child: Container(
+        padding: const EdgeInsets.all(15.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 2,
+              blurRadius: 10,
+            ),
+          ],
+        ),
+        child: const Row(
+          children: [
+             const Container(
+            height: 50,
+            width: 50,
+            decoration: BoxDecoration(
+              color: Color(0xFF6C63FF).withOpacity(0.2),
+              borderRadius: BorderRadius.circular(12),
+            ),
+      
+            child: Center(
+              child: Icon(
+                icon,
+                color: Color(0xFF6C63FF),
+                size: 25,
+              ),
             ),
           ),
-        ),
-        const SizedBox(width: 15),
-
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'title',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+          const SizedBox(width: 15),
+      
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'title',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 5),
-
-               Text(
-                'subtitle',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                const SizedBox(height: 5),
+      
+                 Text(
+                  'subtitle',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-
-            ],
-          ),
-          ),
-
-          Column(
-            children: [
-              const SizedBox(
-                height: 40,
-                width: 40,
-                child: Stack(
-                  children: [
-                    CircularProgressIndicator(
-                      value: progress,
-                      backgroundColor: Colors.grey,
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        Color(0xFF6C63FF),
+      
+              ],
+            ),
+            ),
+      
+            Column(
+              children: [
+                const SizedBox(
+                  height: 40,
+                  width: 40,
+                  child: Stack(
+                    children: [
+                      CircularProgressIndicator(
+                        value: progress,
+                        backgroundColor: Colors.grey,
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Color(0xFF6C63FF),
+                        ),
+                        strokeWidth: 5,
                       ),
-                      strokeWidth: 5,
-                    ),
-
-                    Center(
-                      child: Text(
-                        '${(progress * 100).round()}%',
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w500,
+      
+                      Center(
+                        child: Text(
+                          '${(progress * 100).round()}%',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-
-        ],
+                    ],
+                  ),
+                )
+              ],
+            ),
+      
+          ],
+        ),
       ),
     );
   }
