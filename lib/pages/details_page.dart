@@ -134,6 +134,34 @@ class DetailsPage extends StatelessWidget {
           ),
         ]
       ),
+
+      child: const Column(
+        children: [
+          Icon(
+            icon,
+            color: Color(0xFF6c63FF),
+            size: 22,
+          ),
+          const SizedBox(height: 10),
+
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 5),
+
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.grey,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
