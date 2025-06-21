@@ -76,9 +76,65 @@ class DetailsPage extends StatelessWidget {
                   ),
                 ),
               ),
+
+              const Padding(
+                padding: EdgeInsets.all(20.0),
+                child: Column (
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                      children: [
+                        _buildInfoCard(
+                          'Exercises',
+                          '12',
+                          Icon(Icons.fitness_center),
+                        ),
+
+                        _buildInfoCard(
+                          'Equipment',
+                          'Minimal',
+                          Icon(Icons.sports_handball),
+                        ),
+
+                        _buildInfoCard(
+                          'Level',
+                          'Medium',
+                          Icon(Icons.trending_up),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget _buildInfoCard(
+    String title,
+    String value,
+    IconData icon,
+  ) {
+    return Container(
+      width: 100,
+      padding: const EdgeInsets.all(10),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            blurRadius: 10,
+            spreadRadius: 2,
+          ),
+        ]
+      ),
+    );
+  }
+
 }
